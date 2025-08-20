@@ -1,0 +1,2 @@
+module BragdocsHelper
+end

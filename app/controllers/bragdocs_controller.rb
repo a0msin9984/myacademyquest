@@ -1,0 +1,2 @@
+class BragdocsController < ApplicationController
+end
