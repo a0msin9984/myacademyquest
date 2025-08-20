@@ -14,4 +14,6 @@ Rails.application.routes.draw do
 
   # Bragdocs page
   get "bragdocs", to: "bragdocs#index", as: :bragdocs_index
+
+  get "*path", to: redirect("/"), via: :all
 end
