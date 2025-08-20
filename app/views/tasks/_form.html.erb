@@ -1,10 +1,8 @@
-<%= form_with model: task, url: tasks_path, method: :post, id: "new_task" do |form| %>
+<%= form_with(model: task, url: tasks_path, method: :post, id: "new_task") do |form| %>
   <div class="mt-8 md:mt-12 mb-6 w-full h-14 md:ml-20 md:mr-15 md:w-auto md:h-18 bg-white rounded-lg border border-black flex items-center shadow-lg shadow-gray-500/20">
     <%= form.text_field :title, placeholder: "Add your Quest here", class: "flex-grow bg-transparent outline-none text-gray-500 placeholder-gray-400 text-base md:text-2xl ml-4 md:ml-8" %>
-    <div>
-      <%= form.submit "Create",
-          data: { testid: "create-quest-btn" },
-          class: "w-full rounded-lg px-5 py-3 bg-sky-700 hover:bg-sky-600 text-white font-semibold shadow transition cursor-pointer" %>
-    </div>
+    <button type="submit" class="w-11 h-11 md:w-12 md:h-12 rounded-full bg-white flex items-center justify-center mr-2" data-testid="add-task-btn">
+      <%= image_tag "send.svg", alt: "check_btn", class: "w-8 h-8 md:w-14 md:h-14" %>
+    </button>
   </div>
 <% end %>

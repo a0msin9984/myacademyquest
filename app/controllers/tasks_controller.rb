@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   def index
-    @tasks = Task.active # เอาเฉพาะที่ยังไม่ลบ
+    @tasks = Task.active.order(id: :desc)
     @task = Task.new
   end
 
