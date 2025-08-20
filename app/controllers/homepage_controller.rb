@@ -15,6 +15,14 @@ class HomepageController < ApplicationController
     end
   end
 
+  def destroy
+    @task = Task.find(params[:id])
+    @task.update(deleted: true)
+    redirect_to root_path, notice: "Task was deleted."
+  rescue ActiveRecord::RecordNotFound
+    redirect_to root_path, alert: "Task not found"
+  end
+
 
   private
   def task_params

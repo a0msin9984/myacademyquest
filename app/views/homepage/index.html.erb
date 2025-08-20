@@ -1,9 +1,18 @@
-<% @tasks.each do |task| %>
-  <div class="w-150 h-20 mb-2">
-    <p class="font-normal text-xl ml-4"><%= task.title %></p>
-  </div>
-<% end %>
-
+<div id="tasks_list">
+  <% (@tasks || []).each do |task| %>
+    <div class="task-item w-150 h-20 bg-white mt-5 ml-20 rounded-full shadow-lg border flex items-center px-4">
+      <!-- Task Title -->
+      <p class="font-normal text-xl ml-4 flex-grow"><%= task.title %></p>
+      <!-- Delete Button -->
+      <%= button_to task_path(task),
+          method: :delete,
+          data: { turbo_confirm: "Are you sure?" },
+          class: "p-0 bg-transparent border-0 hover:bg-gray-200 rounded-full flex items-center" do %>
+        <%= image_tag "close-x.svg", alt: "cancel_btn", class: "w-8 h-8 opacity-40 hover:opacity-100 transition" %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
 <% if @task.errors.any? %>
   <div class="text-red-500">
     <ul>
@@ -13,7 +22,6 @@
     </ul>
   </div>
 <% end %>
-
 <%= form_with model: @task, url: root_path, method: :post, local: true do |form| %>
   <div class="mx-auto bottom-10 w-140 h-15 bg-white rounded-full border border-black flex items-center">
     <!-- Input Field -->

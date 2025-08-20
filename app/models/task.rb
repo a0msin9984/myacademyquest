@@ -1,4 +1,4 @@
 class Task < ApplicationRecord
   validates :title, presence: true
-  scope :active, -> { all }
+  scope :active, -> { where(deleted: [ false, nil ]) }
 end
