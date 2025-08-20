@@ -1,0 +1,28 @@
+<% @tasks.each do |task| %>
+  <div class="w-150 h-20 mb-2">
+    <p class="font-normal text-xl ml-4"><%= task.title %></p>
+  </div>
+<% end %>
+
+<% if @task.errors.any? %>
+  <div class="text-red-500">
+    <ul>
+      <% @task.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_with model: @task, url: root_path, method: :post, local: true do |form| %>
+  <div class="mx-auto bottom-10 w-140 h-15 bg-white rounded-full border border-black flex items-center">
+    <!-- Input Field -->
+    <%= form.text_field :title,
+            placeholder: "Add your Quest here",
+            class: "flex-grow bg-transparent outline-none text-gray-500 placeholder-gray-400 text-xl ml-8" %>
+    <!-- Submit Button -->
+    <button type="submit" class="w-20 h-20 rounded-full bg-amber-500 flex items-center justify-center" data-testid="add-task-btn">
+      <p>send</p>
+    </button>
+  </div>
+<% end %>

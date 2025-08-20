@@ -1,0 +1,101 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/a0msin_/Desktop/myacademyquest/app/helpers/application_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/a0msin_/Desktop/myacademyquest/app/helpers/homepage_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/a0msin_/Desktop/myacademyquest/app/helpers/tasks_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/a0msin_/Desktop/myacademyquest/app/models/task.rb": {
+        "lines": [
+          1,
+          1,
+          10,
+          null
+        ]
+      },
+      "/Users/a0msin_/Desktop/myacademyquest/app/models/application_record.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/a0msin_/Desktop/myacademyquest/app/controllers/homepage_controller.rb": {
+        "lines": [
+          1,
+          1,
+          5,
+          5,
+          null,
+          null,
+          1,
+          4,
+          null,
+          4,
+          2,
+          null,
+          2,
+          2,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          4,
+          null,
+          null
+        ]
+      },
+      "/Users/a0msin_/Desktop/myacademyquest/app/controllers/application_controller.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          null
+        ]
+      },
+      "/Users/a0msin_/Desktop/myacademyquest/app/controllers/tasks_controller.rb": {
+        "lines": [
+          1,
+          1,
+          2,
+          2,
+          null,
+          null,
+          1,
+          2,
+          null,
+          2,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          1,
+          2,
+          null,
+          null
+        ]
+      }
+    },
+    "timestamp": 1755661924
+  }
+}
