@@ -17,4 +17,13 @@ RSpec.describe "Tasks", type: :system do
     find("[data-testid='add-task-btn']").click
     expect(page).to have_content("Title can't be blank")
   end
+
+  it "delete task " do
+    visit root_path
+      within find(".task-item", text: "Buy milk") do
+      find("[data-testid='delete-task-btn']").click
+  end
+
+    expect(page).not_to have_content("Buy milk")
+  end
 end

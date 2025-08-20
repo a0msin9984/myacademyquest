@@ -47,4 +47,19 @@ RSpec.describe "Tasks", type: :request do
       expect(response).to redirect_to(root_path)
     end
   end
+
+  describe "PATCH /tasks/:id/toggle" do
+    it "toggles task from incomplete to complete" do
+      patch toggle_task_path(task)
+      expect(response).to redirect_to(root_path)
+      expect(task.reload.completed).to eq(true)
+    end
+
+    it "toggles task from complete to incomplete" do
+      task.update(completed: true)
+      patch toggle_task_path(task)
+      expect(response).to redirect_to(root_path)
+      expect(task.reload.completed).to eq(false)
+    end
+  end
 end

@@ -1,12 +1,22 @@
 <div id="tasks_list">
   <% (@tasks || []).each do |task| %>
-    <div class="task-item w-150 h-20 bg-white mt-5 ml-20 rounded-full shadow-lg border flex items-center px-4">
+    <div id="<%= dom_id(task) %>" class="task-item w-150 h-20 bg-white mt-5 ml-20 rounded-full shadow-lg border <%= task.completed ? 'border-amber-300' : 'border-gray-300' %> flex items-center px-4">
+      <%= button_to toggle_task_path(task),
+          method: :patch,
+          data: { turbo_method: :patch },  # ใช้ Turbo รองรับ patch
+          class: "w-15 h-15 rounded-full flex items-center justify-center border #{task.completed ? 'bg-gradient-to-br from-orange-300 via-amber-300 to-yellow-200 border-amber-300' : 'bg-white border-gray-300'}" do %>
+        <% if task.completed %>
+          <%= image_tag "check.svg", alt: "check_btn", class: "w-8 h-8 filter invert brightness-0" %>
+        <% end %>
+      <% end %>
       <!-- Task Title -->
-      <p class="font-normal text-xl ml-4 flex-grow"><%= task.title %></p>
+      <p class="font-normal text-xl ml-4 flex-grow <%= 'line-through text-gray-400' if task.completed %>">
+        <%= task.title %>
+      </p>
       <!-- Delete Button -->
       <%= button_to task_path(task),
           method: :delete,
-          data: { turbo_confirm: "Are you sure?" },
+          data: { turbo_confirm: "Are you sure?", testid: "delete-task-btn" },
           class: "p-0 bg-transparent border-0 hover:bg-gray-200 rounded-full flex items-center" do %>
         <%= image_tag "close-x.svg", alt: "cancel_btn", class: "w-8 h-8 opacity-40 hover:opacity-100 transition" %>
       <% end %>

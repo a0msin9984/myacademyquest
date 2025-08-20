@@ -16,4 +16,27 @@ RSpec.describe Task, type: :model do
     Task.create!(title: "Active task")
     expect(Task.all).to include(Task.first)
   end
+
+  describe "#soft delete" do
+    it "marks the task as deleted" do
+      task = Task.create!(title: "Task to delete")
+      task.update(deleted: true)
+      expect(task.deleted).to eq(true)
+    end
+  end
+
+  # Toggle completed
+  describe "#toggle completed" do
+    it "marks task as completed if it was incomplete" do
+      task = Task.create!(title: "Incomplete task", completed: false)
+      task.update(completed: !task.completed)
+      expect(task.completed).to eq(true)
+    end
+
+    it "marks task as incomplete if it was completed" do
+      task = Task.create!(title: "Completed task", completed: true)
+      task.update(completed: !task.completed)
+      expect(task.completed).to eq(false)
+    end
+  end
 end
