@@ -1,10 +1,88 @@
-<%= image_tag "banner.svg", alt: "check_btn", class: "w-full h-full" %>
-<div class="flex flex-row items-center md:w-auto w-full ml-10 mt-10">
-  <div class="w-1 h-8 md:h-25 bg-zinc-700 mr-2 md:mr-4"></div>
-  <div class="text-left">
-    <p class="font-bold text-lg md:text-3xl leading-tight">
-      THANAPHAT SATITKUNRUS
-    </p>
-    <p class="font-normal text-sm md:text-lg text-zinc-700">Cafeine Team</p>
+<%= image_tag "banner.svg", alt: "check_btn", class: "w-full h-full" %><!-- Header -->
+<div class="w-full mt-6 px-4 md:px-12 flex flex-col md:flex-row md:items-center md:justify-between">
+  <!-- Back Button -->
+  <div class="mb-4 md:mb-0 flex justify-start">
+    <%= link_to root_path, class: "flex items-center group" do %>
+      <!-- circle button -->
+      <div class="w-10 h-10 flex items-center justify-center rounded-full border border-zinc-300 bg-white shadow-sm group-hover:bg-zinc-100 transition">
+        <svg class="w-6 h-6 text-zinc-800 group-hover:text-zinc-900" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+        </svg>
+      </div>
+      <!-- text (ซ่อนบนมือถือ) -->
+      <span class="ml-3 text-zinc-700 text-base md:text-lg font-medium group-hover:text-zinc-900 transition sm:inline">
+        Back to Homepage
+      </span>
+    <% end %>
+  </div>
+  <!-- Name -->
+  <div class="flex items-center justify-between md:justify-end">
+    <div class="w-1 h-8 md:h-10 bg-zinc-700 mr-3"></div>
+    <div class="text-right">
+      <p class="font-bold text-xl md:text-3xl text-zinc-800">THANAPHAT SATITKUNRUS</p>
+      <p class="text-sm md:text-lg text-zinc-600">Cafeine Team</p>
+    </div>
+  </div>
+</div>
+<!-- Content -->
+<div class="w-full flex justify-center mt-10 px-6">
+  <div class="w-full max-w-4xl">
+    <!-- Goal to Grow -->
+    <section class="mb-12">
+      <h1 class="font-extrabold text-3xl md:text-4xl text-zinc-900 mb-6 tracking-wide border-b-2 border-zinc-300 pb-2">GOAL TO GROW</h1>
+      <ul class="list-disc pl-6 space-y-3 text-zinc-700 text-base md:text-lg leading-relaxed">
+        <li>พัฒนา Wireframes, User Flows, Prototypes และ Visual Design สำหรับทั้ง Web & Mobile ให้คล่องและเชี่ยวชาญ</li>
+        <li>ทำ User Research & Usability Testing ได้อย่างมีประสิทธิภาพ</li>
+        <li>ยกระดับทักษะภาษาอังกฤษ ทั้งการสื่อสารและการเขียน Grammar ที่ถูกต้อง</li>
+        <li>เพิ่มความสามารถในการเขียน Frontend & Backend Programming ให้แข็งแรงยิ่งขึ้น</li>
+      </ul>
+    </section>
+    <!-- Action Plan -->
+    <section class="space-y-8 mb-20">
+      <h2 class="font-bold text-2xl md:text-3xl text-zinc-900 mb-4 border-b border-zinc-200 pb-2">ACTION PLAN</h2>
+      <!-- Personal -->
+      <div>
+        <h3 class="font-semibold text-lg md:text-xl flex items-center text-zinc-800 mb-2">
+          🧑‍💻 <span class="ml-2">Personal (Self)</span>
+        </h3>
+        <ul class="list-disc pl-7 space-y-2 text-zinc-700 text-base">
+          <li>ลงคอร์สเรียนภาษาอังกฤษ และฝึกใช้งานจริงในชีวิตประจำวัน</li>
+          <li>สร้าง Mini Project ตั้งแต่การออกแบบจน Deploy ได้ใช้งานจริง</li>
+          <li>ฝึก Typing Skill อย่างน้อยวันละ 1 ครั้ง เพื่อเพิ่มความเร็วและความมั่นใจ</li>
+        </ul>
+      </div>
+      <!-- Team -->
+      <div>
+        <h3 class="font-semibold text-lg md:text-xl flex items-center text-zinc-800 mb-2">
+          🤝 <span class="ml-2">Team</span>
+        </h3>
+        <ul class="list-disc pl-7 space-y-2 text-zinc-700 text-base">
+          <li>ทำงานร่วมกันให้โปรเจคเสร็จสมบูรณ์ไปพร้อมกัน</li>
+          <li>แชร์ความรู้และประสบการณ์ เพื่อเติบโตไปด้วยกัน</li>
+        </ul>
+      </div>
+      <!-- ODT -->
+      <div>
+        <h3 class="font-semibold text-lg md:text-xl flex items-center text-zinc-800 mb-2">
+          🚀 <span class="ml-2">ODT</span>
+        </h3>
+        <ul class="list-disc pl-7 space-y-2 text-zinc-700 text-base">
+          <li>สร้างมาตรฐานการทำงานที่ชัดเจนและใช้งานได้จริงในทีม</li>
+          <li>พัฒนา Workflow ที่ช่วยให้ทีมทำงานเร็วขึ้นและลดความซ้ำซ้อน</li>
+          <li>ผลักดันให้เกิดการเรียนรู้ร่วมกันอย่างต่อเนื่องภายในทีม</li>
+        </ul>
+      </div>
+      <!-- Client -->
+      <div>
+        <h3 class="font-semibold text-lg md:text-xl flex items-center text-zinc-800 mb-2">
+          🌟 <span class="ml-2">Client</span>
+        </h3>
+        <ul class="list-disc pl-7 space-y-2 text-zinc-700 text-base">
+          <li>ส่งมอบผลงานที่ตอบโจทย์ความต้องการของลูกค้าอย่างแท้จริง</li>
+          <li>ออกแบบ UX/UI ที่สร้างความประทับใจและใช้งานง่ายสำหรับผู้ใช้</li>
+          <li>สร้างความเชื่อมั่นด้วยการสื่อสารที่โปร่งใส และทำงานอย่างมืออาชีพ</li>
+        </ul>
+      </div>
+    </section>
   </div>
 </div>

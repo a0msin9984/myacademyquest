@@ -1,0 +1,16 @@
+<%= turbo_frame_tag dom_id(task) do %>
+<div id="<%= dom_id(task) %>" class="task-item w-full max-w-sm md:w-[48rem] md:max-w-[90%] bg-white mt-4 md:mt-5 rounded-lg shadow-lg border <%= task.completed ? 'border-gray-500 ' : 'border-gray-300' %> flex items-center px-2 md:px-4 py-3">
+  <%= button_to toggle_task_path(task), method: :patch,
+    class: "w-10 h-10 rounded-full flex items-center justify-center border #{task.completed ? 'border-gray-500' : 'bg-white border-gray-300'}" do %>
+    <% if task.completed %>
+      <%= image_tag "check.svg", alt: "check_btn", class: "w-8 h-8" %>
+    <% end %>
+  <% end %>
+  <p class="font-light text-base md:text-2xl ml-2 md:ml-4 flex-grow min-w-0 break-words leading-relaxed <%= 'line-through text-gray-400' if task.completed %>">
+    <%= task.title %>
+  </p>
+  <%= button_to "Delete", task, method: :delete,
+      data: { testid: "delete-task-btn" },
+      class: "flex-shrink-0 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center p-0 bg-transparent border-0 hover:bg-gray-200 rounded-full"%>
+</div>
+<% end %>

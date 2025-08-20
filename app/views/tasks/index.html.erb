@@ -1,0 +1,62 @@
+<div class="w-full min-h-screen bg-white relative
+            grid grid-cols-1 md:grid-cols-2">
+  <!-- ส่วนซ้าย (โปรไฟล์/ชื่อ สลับเป็น 1 คอลัมน์บน mobile) -->
+  <div class="w-full h-full flex flex-col items-center justify-center relative
+              md:items-center md:justify-center">
+    <!-- paper อยู่มุมบนซ้ายหรือขวาตามหน้าจอ -->
+    <%= image_tag "paper.png", alt: "paper",
+          class: "absolute top-0 left-0 w-20 h-20 object-cover
+                  md:w-30 md:h-30" %>
+    <!-- profile อยู่กลาง -->
+    <div class="relative mt-4 md:mt-0">
+      <div class="w-50 h-70 mx-auto bg-white overflow-hidden md:w-120 md:h-140 flex items-center justify-center">
+        <%= image_tag "My-profile.png", alt: "profile_picture", class: "w-full h-full object-cover" %>
+      </div>
+    </div>
+    <!-- ข้อความใต้รูป -->
+    <div class="flex flex-col items-center md:items-start mt-4 md:mt-10 px-6 md:px-20 w-full">
+      <div class="flex flex-row items-center md:w-auto w-full">
+        <div class="w-1 h-8 md:h-25 bg-zinc-700 mr-2 md:mr-4"></div>
+        <div class="text-left">
+          <p class="font-bold text-lg md:text-3xl leading-tight">
+            THANAPHAT<br>
+            SATITKUNRUS
+          </p>
+          <p class="font-normal text-sm md:text-lg text-zinc-700">Cafeine Team</p>
+        </div>
+      </div>
+      <%= link_to bragdocs_index_path, class: "relative inline-flex items-center justify-center p-0.5 mt-4 overflow-hidden text-sm font-medium rounded-lg group bg-gradient-to-br from-gray-500 via-gray-500 to-gray-700" do %>
+        <span class="relative flex items-center gap-2 px-5 py-2.5 transition-all ease-in duration-75 bg-white rounded-md group-hover:bg-transparent group-hover:text-white">
+          <span class="font-normal text-lg">My Brag Document</span>
+        </span>
+      <% end %>
+    </div>
+  </div>
+  <!-- ส่วนขวา (mobile: อยู่ใต้โปรไฟล์) -->
+  <div class="w-full h-full relative flex flex-col px-4 md:px-0">
+    <!-- เส้นแนวตั้ง เฉพาะ md ขึ้นไป -->
+    <div class="hidden md:block absolute left-0 top-0 h-full w-0.5 bg-zinc-300 shadow-[0_0_20px_3px_rgba(0,0,0,0.5)]"></div>
+    <!-- "ACADEMY QUEST" บน desktop -->
+    <div class="hidden md:flex mt-26 self-start px-20">
+      <div class="w-1 h-12 bg-zinc-700 mr-4"></div>
+      <div class="text-left">
+        <p class="font-bold text-4xl">My Academy Quest</p>
+      </div>
+    </div>
+    <!-- "ACADEMY QUEST" บน mobile อยู่บน profile แล้ว -->
+    <div class="block md:hidden mt-12 mb-4 text-left font-bold text-2xl">My Academy Quest</div>
+    <!-- Tasks List -->
+
+    <%= turbo_frame_tag "tasks_list" do %>
+      <div class="bg-white w-full md:w-full h-96 md:h-130 rounded-lg mt-2 md:mt-0">
+        <div class="h-96 md:h-130 px-0 overflow-y-auto md:ml-20">
+          <%= render partial: "task", collection: @tasks, as: :task %>
+        </div>
+      </div>
+    <% end %>
+
+    <%= turbo_frame_tag "new_task" do %>
+      <%= render "form", task: @task %> 
+    <% end %>
+  </div>
+</div>

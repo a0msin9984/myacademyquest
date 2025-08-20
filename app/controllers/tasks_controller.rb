@@ -8,17 +8,24 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
 
     if @task.save
-      render :index, status: :created # 201
+      @tasks = Task.active
+      respond_to do |format|
+        format.turbo_stream  # ตอบกลับ turbo_stream
+        format.html { redirect_to root_path }
+      end
     else
-      @tasks = Task.all.order(created_at: :desc)
-      render :index, status: :unprocessable_content # แก้ deprecated
+      @tasks = Task.active
+      respond_to do |format|
+        format.turbo_stream { render turbo_stream: turbo_stream.replace("tasks_list", partial: "tasks/tasks_list", locals: { tasks: @tasks, task: @task }) }
+        format.html { render :index, status: :unprocessable_entity }
+      end
     end
   end
 
   def destroy
     @task = Task.find(params[:id])
     @task.update(deleted: true)
-
+    @tasks = Task.active
     respond_to do |format|
       format.turbo_stream
       format.html { redirect_to root_path, notice: "Task was deleted." }
